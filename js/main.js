@@ -29,9 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initStickyCta();
   initSlider();
   initForm();
+  initTracking();
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 });
+
+/* ---------- 広告の成果計測（Meta Pixel） ---------- */
+function track(event) {
+  if (typeof window.fbq === 'function') window.fbq('track', event);
+}
+
+function initTracking() {
+  // 電話ボタンのタップ
+  document.querySelectorAll('a[href^="tel:"]').forEach((a) => {
+    a.addEventListener('click', () => track('Contact'));
+  });
+}
 
 /* ---------- スクロールでふわっと表示 ---------- */
 function initFadeIn() {
@@ -203,6 +216,7 @@ function initForm() {
       form.hidden = true;
       thanks.hidden = false;
       thanks.focus();
+      track('Lead'); // 予約フォーム送信完了
     } catch (err) {
       formError.hidden = false;
       button.disabled = false;
