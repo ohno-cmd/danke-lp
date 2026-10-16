@@ -236,6 +236,7 @@ strong { font-weight: 700; }
   letter-spacing: .04em;
 }
 .fv__title span { font-size: 1.14em; color: var(--c-brown); }
+.fv__badges { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; }
 .badge-round {
   position: relative;
   display: grid;
