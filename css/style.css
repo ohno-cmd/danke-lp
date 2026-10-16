@@ -236,62 +236,6 @@ strong { font-weight: 700; }
   letter-spacing: .04em;
 }
 .fv__title span { font-size: 1.14em; color: var(--c-brown); }
-/* Google口コミバッジ（FV写真の右上） */
-.fv__google {
-  --gold: #D8BC82;
-  --gold-deep: #A9844A;
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 1px;
-  width: 104px;
-  height: 104px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 28%, #4E372C 0%, #33231B 62%, #261912 100%);
-  box-shadow: 0 0 0 1.5px var(--gold-deep), 0 8px 22px rgba(38, 25, 18, .35);
-  text-align: center;
-  line-height: 1;
-}
-/* 内側の細い金のリング */
-.fv__google::before {
-  content: "";
-  position: absolute;
-  inset: 5px;
-  border: 1px solid rgba(216, 188, 130, .55);
-  border-radius: 50%;
-}
-.fv__google-label {
-  padding-bottom: 3px;
-  border-bottom: 1px solid rgba(216, 188, 130, .45);
-  font-size: 8.5px;
-  font-weight: 500;
-  letter-spacing: .08em;
-  color: var(--gold);
-}
-.fv__google-num {
-  margin: 3px 0 2px;
-  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-size: 34px;
-  font-weight: 600;
-  letter-spacing: .02em;
-  background: linear-gradient(180deg, #F3E2B8 0%, #D8BC82 45%, #A9844A 100%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-}
-.fv__google-stars {
-  font-size: 9.5px;
-  letter-spacing: 1.5px;
-  background: linear-gradient(90deg, var(--gold) 94%, rgba(216, 188, 130, .3) 0); /* 4.7 / 5 */
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-}
-.fv__google-count { margin-top: 3px; font-size: 8px; letter-spacing: .1em; color: rgba(243, 226, 184, .8); }
-.fv__badges { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; }
 .badge-round {
   position: relative;
   display: grid;
@@ -310,8 +254,20 @@ strong { font-weight: 700; }
 .badge-round svg { position: absolute; top: 12px; width: 16px; height: 16px; opacity: .6; }
 .badge-round span { padding-top: 12px; }
 .badge-round strong { font-size: 18px; }
-.badge-round:first-child span { font-size: 12px; line-height: 1.35; }
-.badge-round:first-child strong { display: inline-block; margin: 1px 0; }
+/* Google口コミの丸バッジ（FVの丸アイコン左） */
+.badge-round--google { align-content: center; gap: 2px; line-height: 1.1; }
+.badge-round--google span { padding-top: 0; }
+.badge-google__label { font-size: 11.5px; font-weight: 700; }
+.badge-google__stars {
+  font-size: 12px;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #E0A526 94%, #D8DCE6 0); /* 4.7 / 5 */
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.badge-round--google .badge-google__num { font-size: 26px; line-height: 1.05; }
+.badge-google__count { font-size: 10.5px; font-weight: 500; }
 
 /* =========================================================
    ② 共感
