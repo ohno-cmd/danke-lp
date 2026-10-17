@@ -34,9 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (year) year.textContent = new Date().getFullYear();
 });
 
-/* ---------- 広告の成果計測（Meta Pixel） ---------- */
+/* ---------- 成果計測（Meta Pixel / Googleアナリティクス4） ---------- */
+// Meta のイベント名 → GA4 のイベント名
+const GA4_EVENTS = {
+  Lead: 'generate_lead', // 予約フォーム送信完了（GA4の推奨イベント）
+  Contact: 'phone_click', // 電話ボタンのタップ
+};
+
 function track(event) {
   if (typeof window.fbq === 'function') window.fbq('track', event);
+  if (typeof window.gtag === 'function' && GA4_EVENTS[event]) window.gtag('event', GA4_EVENTS[event]);
 }
 
 function initTracking() {
