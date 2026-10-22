@@ -355,6 +355,7 @@ strong { font-weight: 700; }
 }
 .risk__item p { font-size: 15px; line-height: 1.85; }
 .risk__message {
+  word-break: auto-phrase;
   margin-top: 32px;
   padding: 24px 16px;
   border: 2px solid var(--c-blue);
@@ -739,9 +740,9 @@ strong { font-weight: 700; }
 }
 .offer__regular { display: block; margin-top: 6px; font-family: var(--ff-body); font-size: 13px; font-weight: 500; color: var(--c-text-sub); text-decoration: line-through; }
 .offer__note { margin: -10px 0 18px; font-size: 12px; line-height: 1.7; color: var(--c-text-sub); word-break: auto-phrase; }
-/* ---------- FVの予約ボタン（特典の吹き出し＋ボタン） ---------- */
-.fv-cta { margin-top: 4px; }
-.fv-cta__offer {
+/* ---------- 予約ボタン共通（特典の吹き出し＋ボタン） ---------- */
+.cta-set { margin-top: 4px; }
+.cta-set__offer {
   position: relative;
   width: fit-content;
   max-width: 100%;
@@ -759,7 +760,7 @@ strong { font-weight: 700; }
   white-space: nowrap;
 }
 /* 吹き出しのしっぽ */
-.fv-cta__offer::before, .fv-cta__offer::after {
+.cta-set__offer::before, .cta-set__offer::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -767,9 +768,9 @@ strong { font-weight: 700; }
   border-left: 9px solid transparent;
   border-right: 9px solid transparent;
 }
-.fv-cta__offer::before { bottom: -11px; border-top: 10px solid var(--c-cta); }
-.fv-cta__offer::after { bottom: -7.5px; border-top: 8px solid var(--c-white); border-left-width: 7px; border-right-width: 7px; }
-.fv-cta__tag {
+.cta-set__offer::before { bottom: -11px; border-top: 10px solid var(--c-cta); }
+.cta-set__offer::after { bottom: -7.5px; border-top: 8px solid var(--c-white); border-left-width: 7px; border-right-width: 7px; }
+.cta-set__tag {
   display: block;
   width: fit-content;
   margin: 0 auto 3px;
@@ -780,9 +781,9 @@ strong { font-weight: 700; }
   font-size: 11.5px;
 
 }
-.fv-cta__offer strong { margin-left: 2px; font-size: 1.25em; color: var(--c-cta); }
+.cta-set__offer strong { margin-left: 2px; font-size: 1.25em; color: var(--c-cta); }
 
-.fv-cta__btn {
+.cta-set__btn {
   position: relative;
   display: grid;
   justify-items: center;
@@ -798,11 +799,17 @@ strong { font-weight: 700; }
   overflow: hidden;
   transition: transform .12s, box-shadow .12s;
 }
-.fv-cta__btn:active { transform: translateY(5px); box-shadow: 0 1px 0 #8F3A1C, 0 4px 10px rgba(191, 85, 48, .3); }
-.fv-cta__btn:focus-visible { outline: 3px solid var(--c-blue); outline-offset: 4px; }
-.fv-cta__sub { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #FFE3D2; }
-.fv-cta__main { font-family: var(--ff-head); font-size: 19px; white-space: nowrap; font-weight: 700; line-height: 1.3; letter-spacing: .04em; text-shadow: 0 1px 0 rgba(0, 0, 0, .12); }
-.fv-cta__icon {
+/* 送信ボタン（<button>）用のリセット */
+.cta-set__btn--submit { width: 100%; border: 0; font: inherit; cursor: pointer; }
+.cta-set__btn--submit[disabled] { opacity: .75; cursor: wait; }
+/* 枠の中（料金表の特典枠・予約フォーム）は横幅が狭いので文字と余白を詰める */
+.offer .cta-set__btn, .form-wrap .cta-set__btn { padding: 12px 52px 14px 18px; }
+.offer .cta-set__main, .form-wrap .cta-set__main { font-size: 17px; }
+.cta-set__btn:active { transform: translateY(5px); box-shadow: 0 1px 0 #8F3A1C, 0 4px 10px rgba(191, 85, 48, .3); }
+.cta-set__btn:focus-visible { outline: 3px solid var(--c-blue); outline-offset: 4px; }
+.cta-set__sub { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #FFE3D2; }
+.cta-set__main { font-family: var(--ff-head); font-size: 19px; white-space: nowrap; font-weight: 700; line-height: 1.3; letter-spacing: .04em; text-shadow: 0 1px 0 rgba(0, 0, 0, .12); }
+.cta-set__icon {
   position: absolute;
   top: 50%;
   right: 16px;
@@ -815,9 +822,9 @@ strong { font-weight: 700; }
   color: var(--c-cta);
   transform: translateY(-50%);
 }
-.fv-cta__icon svg { width: 16px; height: 16px; }
+.cta-set__icon svg { width: 16px; height: 16px; }
 /* ゆっくり光が流れて、押せるボタンだと気づきやすくする */
-.fv-cta__btn::after {
+.cta-set__btn::after {
   content: "";
   position: absolute;
   top: 0;
@@ -826,12 +833,12 @@ strong { font-weight: 700; }
   height: 100%;
   background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .28), transparent);
   transform: skewX(-20deg);
-  animation: fv-cta-shine 3.6s ease-in-out infinite 1s;
+  animation: cta-set-shine 3.6s ease-in-out infinite 1s;
   pointer-events: none;
 }
-@keyframes fv-cta-shine { 0% { left: -60%; } 30%, 100% { left: 130%; } }
+@keyframes cta-set-shine { 0% { left: -60%; } 30%, 100% { left: 130%; } }
 @media (prefers-reduced-motion: reduce) {
-  .fv-cta__btn::after { display: none; }
+  .cta-set__btn::after { display: none; }
 }
 
 .cta-note { margin-top: 14px; font-size: 11.5px; line-height: 1.7; color: var(--c-text-sub); word-break: auto-phrase; }
@@ -1266,20 +1273,53 @@ html.is-locked { overflow: hidden; }
   display: grid;
   place-items: center;
   align-content: center;
-  min-height: 52px;
-  padding: 4px 10px;
-  border-radius: 12px;
-  background: var(--c-cta);
-  box-shadow: 0 3px 0 var(--c-cta-dark);
+  position: relative;
+  min-height: 54px;
+  padding: 5px 44px 6px 12px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #D0653B 0%, #BF5530 55%, #AE4826 100%);
+  box-shadow: 0 4px 0 #8F3A1C, 0 6px 14px rgba(191, 85, 48, .3);
   color: var(--c-white);
   font-family: var(--ff-head);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.3;
   text-align: center;
   text-decoration: none;
+  overflow: hidden;
+  transition: transform .12s, box-shadow .12s;
 }
-.sticky-cta__sub { font-size: 11px; color: #FFE7D6; }
+.sticky-cta__main:active { transform: translateY(3px); box-shadow: 0 1px 0 #8F3A1C; }
+.sticky-cta__sub { font-size: 11px; font-family: var(--ff-body); color: #FFE3D2; }
+.sticky-cta__icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--c-white);
+  color: var(--c-cta);
+  transform: translateY(-50%);
+}
+.sticky-cta__icon svg { width: 13px; height: 13px; }
+.sticky-cta__main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .28), transparent);
+  transform: skewX(-20deg);
+  animation: cta-set-shine 3.6s ease-in-out infinite 1s;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta__main::after { display: none; }
+}
 
 /* ---------- 320px対応 ---------- */
 @media (max-width: 359px) {
@@ -1291,13 +1331,17 @@ html.is-locked { overflow: hidden; }
   .btn-cta__arrow { right: 14px; }
   .sticky-cta__main { font-size: 13.5px; }
   .btn-cta--sm { font-size: 14px; }
-  .sticky-cta__sub { font-size: 10px; }
+  .sticky-cta__sub { font-size: 10px; letter-spacing: 0; }
+  .sticky-cta__main { padding: 5px 34px 6px 8px; }
+  .sticky-cta__icon { right: 6px; width: 24px; height: 24px; }
   .reserve__offer { font-size: 17px; }
-  .fv-cta__offer { font-size: 12.5px; padding-left: 12px; padding-right: 12px; }
-  .fv-cta__tag { font-size: 10.5px; }
-  .fv-cta__btn { padding-left: 44px; padding-right: 50px; }
-  .fv-cta__main { font-size: 16px; }
-  .fv-cta__icon { right: 12px; width: 30px; height: 30px; }
+  .cta-set__offer { font-size: 12.5px; padding-left: 12px; padding-right: 12px; }
+  .cta-set__tag { font-size: 10.5px; }
+  .cta-set__btn { padding-left: 44px; padding-right: 50px; }
+  .cta-set__main { font-size: 16px; }
+  .cta-set__icon { right: 12px; width: 30px; height: 30px; }
+  .offer .cta-set__btn, .form-wrap .cta-set__btn { padding-left: 12px; padding-right: 46px; }
+  .offer .cta-set__main, .form-wrap .cta-set__main { font-size: 15px; }
   .access__info > div { grid-template-columns: 64px minmax(0, 1fr); }
   .cal { padding-left: 6px; padding-right: 6px; }
   .cal__slots { grid-template-columns: repeat(3, minmax(0, 1fr)); }

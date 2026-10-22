@@ -113,12 +113,12 @@
           <li class="badge-round badge-round--google" role="img" aria-label="Google口コミ 5点満点中4.7点（31件）"><span class="badge-google__label">Google口コミ</span><span class="badge-google__stars" aria-hidden="true">★★★★★</span><strong class="badge-google__num">4.7</strong><span class="badge-google__count">（31件）</span></li>
           <li class="badge-round"><svg aria-hidden="true"><use href="#i-paw"/></svg><span>丹波橋駅から<br><strong>徒歩2分</strong></span></li>
         </ul>
-        <div class="fv-cta">
-          <p class="fv-cta__offer"><span class="fv-cta__tag">初回限定</span>オプション「ハーブ泡シャンプー」<strong>無料</strong></p>
-          <a href="#reserve" class="fv-cta__btn">
-            <span class="fv-cta__sub">入力はかんたん約1分</span>
-            <span class="fv-cta__main">無料特典付きで予約する</span>
-            <span class="fv-cta__icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        <div class="cta-set">
+          <p class="cta-set__offer"><span class="cta-set__tag">初回限定</span>オプション「ハーブ泡シャンプー」<strong>無料</strong></p>
+          <a href="#reserve" class="cta-set__btn">
+            <span class="cta-set__sub">入力はかんたん約1分</span>
+            <span class="cta-set__main">無料特典付きで予約する</span>
+            <span class="cta-set__icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
           </a>
           <p class="cta-note">※通常¥1,540〜のオプションが無料になります。</p>
         </div>
@@ -173,11 +173,14 @@
       </section>
 
       <div class="mid-cta">
-        <a href="#reserve" class="btn-cta btn-cta--sm">
-          <span class="btn-cta__sub">＼ 初回限定 ／</span>
-          オプション「ハーブ泡シャンプー」<br>無料で予約する
-          <svg class="btn-cta__arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-        </a>
+        <div class="cta-set">
+          <p class="cta-set__offer"><span class="cta-set__tag">初回限定</span>オプション「ハーブ泡シャンプー」<strong>無料</strong></p>
+          <a href="#reserve" class="cta-set__btn">
+            <span class="cta-set__sub">入力はかんたん約1分</span>
+            <span class="cta-set__main">無料特典付きで予約する</span>
+            <span class="cta-set__icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+          </a>
+        </div>
       </div>
 
       <!-- ④ 解決策 -->
@@ -295,11 +298,14 @@
       </section>
 
       <div class="mid-cta mid-cta--alt">
-        <a href="#reserve" class="btn-cta btn-cta--sm">
-          <span class="btn-cta__sub">＼ 初回限定 ／</span>
-          オプション「ハーブ泡シャンプー」<br>無料で予約する
-          <svg class="btn-cta__arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-        </a>
+        <div class="cta-set">
+          <p class="cta-set__offer"><span class="cta-set__tag">初回限定</span>オプション「ハーブ泡シャンプー」<strong>無料</strong></p>
+          <a href="#reserve" class="cta-set__btn">
+            <span class="cta-set__sub">入力はかんたん約1分</span>
+            <span class="cta-set__main">無料特典付きで予約する</span>
+            <span class="cta-set__icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+          </a>
+        </div>
       </div>
 
       <!-- ⑤ 実績・証明 -->
@@ -411,9 +417,10 @@
           <p class="offer__title"><span class="offer__kind">オプション</span>「ハーブ泡シャンプー」<br><span class="offer__regular">通常¥1,540〜</span><strong>無料</strong></p>
           <p class="offer__text">皮膚ケアや被毛を美しくする効果が期待できる人気のオプションを、初回無料でお試しいただけます。</p>
           <p class="offer__note">※シャンプーコース・カットコースに追加するオプションです。<br>コース料金は別途かかります。</p>
-          <a href="#reserve" class="btn-cta btn-cta--sm">
-            無料特典付きで予約する
-            <svg class="btn-cta__arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <a href="#reserve" class="cta-set__btn">
+            <span class="cta-set__sub">入力はかんたん約1分</span>
+            <span class="cta-set__main">無料特典付きで予約する</span>
+            <span class="cta-set__icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
           </a>
         </div>
 
@@ -645,7 +652,11 @@
             </div>
             <!-- TODO: 差し替え プライバシーポリシーページのURL -->
             <p class="form__privacy">ご入力いただいた個人情報は、ご予約に関するご連絡のみに使用し、第三者に提供することはありません。詳しくは<a href="#">プライバシーポリシー</a>をご確認ください。</p>
-            <button type="submit" class="btn-cta btn-cta--submit">無料特典付きで予約する</button>
+            <button type="submit" class="cta-set__btn cta-set__btn--submit">
+              <span class="cta-set__sub">日時はお電話で確定します</span>
+              <span class="cta-set__main" data-submit-label>無料特典付きで予約する</span>
+              <span class="cta-set__icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+            </button>
             <p class="form__note">※送信後、担当者よりお電話で日時を確定いたします。<br>この時点ではまだご予約は確定しません。</p>
             <p class="form__error" id="form-error" role="alert" hidden>送信できませんでした。お手数ですが、お電話でご予約ください。</p>
           </form>
@@ -718,7 +729,7 @@
     <!-- 追従CTA -->
     <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
       <a href="tel:0755856070" class="sticky-cta__tel" aria-label="電話で予約する" tabindex="-1"><svg aria-hidden="true"><use href="#i-tel"/></svg><span>電話</span></a>
-      <a href="#reserve" class="sticky-cta__main" tabindex="-1"><span class="sticky-cta__sub">オプション「ハーブ泡シャンプー」無料</span>初回のご予約はこちら</a>
+      <a href="#reserve" class="sticky-cta__main" tabindex="-1"><span class="sticky-cta__sub">オプション「ハーブ泡シャンプー」無料</span>無料特典付きで予約する<span class="sticky-cta__icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
     </div>
 
   </div>

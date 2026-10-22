@@ -205,8 +205,9 @@ function initForm() {
     }
 
     const button = form.querySelector('[type="submit"]');
+    const label = button.querySelector('[data-submit-label]') || button;
     button.disabled = true;
-    button.textContent = '送信中…';
+    label.textContent = '送信中…';
     formError.hidden = true;
 
     try {
@@ -227,7 +228,7 @@ function initForm() {
     } catch (err) {
       formError.hidden = false;
       button.disabled = false;
-      button.textContent = '無料特典付きで予約する';
+      label.textContent = '無料特典付きで予約する';
     }
   });
 }
