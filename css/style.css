@@ -727,6 +727,20 @@ strong { font-weight: 700; }
   color: var(--c-brown-dark);
 }
 .offer__title strong { font-size: 2em; color: var(--c-cta); letter-spacing: .08em; }
+.offer__kind {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 4px;
+  padding: 0 10px;
+  border: 1.5px solid var(--c-brown);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--c-brown);
+}
+.offer__regular { display: block; margin-top: 6px; font-family: var(--ff-body); font-size: 13px; font-weight: 500; color: var(--c-text-sub); text-decoration: line-through; }
+.offer__note { margin: -10px 0 18px; font-size: 12px; line-height: 1.7; color: var(--c-text-sub); word-break: auto-phrase; }
+.cta-note { margin-top: 14px; font-size: 11.5px; line-height: 1.7; color: var(--c-text-sub); word-break: auto-phrase; }
+.reserve__offer-note { margin: -18px 0 22px; font-size: 13px; text-align: center; color: var(--c-text-sub); word-break: auto-phrase; }
 .offer__text { margin: 10px 0 22px; font-size: 13px; line-height: 1.7; color: var(--c-text-sub); word-break: auto-phrase; text-wrap: balance; }
 
 .price-head {
@@ -1181,6 +1195,9 @@ html.is-locked { overflow: hidden; }
   .btn-cta { font-size: 15px; padding-left: 16px; padding-right: 36px; }
   .btn-cta__arrow { right: 14px; }
   .sticky-cta__main { font-size: 13.5px; }
+  .btn-cta--sm { font-size: 14px; }
+  .sticky-cta__sub { font-size: 10px; }
+  .reserve__offer { font-size: 17px; }
   .access__info > div { grid-template-columns: 64px minmax(0, 1fr); }
   .cal { padding-left: 6px; padding-right: 6px; }
   .cal__slots { grid-template-columns: repeat(3, minmax(0, 1fr)); }
